@@ -21,7 +21,7 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path_1.default.join(__dirname, "../../client/views"));
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../client/public")));
-// Aplicando rotas:
+// Aplicando rotas:/
 app.use(routes_1.default);
 // Middleware de tratamento de erro:
 app.use((error, req, res, next) => {

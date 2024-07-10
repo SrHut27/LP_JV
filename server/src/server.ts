@@ -20,7 +20,7 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "../../client/views"));
 app.use(express.static(path.join(__dirname, "../../client/public")))
 
-// Aplicando rotas:
+// Aplicando rotas:/
 app.use(router);
 
 // Middleware de tratamento de erro:
