@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction } from "express";
 import { create } from "express-handlebars";
+import router from "./routes/routes";
 import createFolders from "./functions/createFolders";
+
 import path from "path";
 
 const app = express();
@@ -12,12 +14,14 @@ const hbs = create ({
     extname: "hbs",
     defaultLayout: "main",
     layoutsDir: path.join(__dirname, "../../client/views/layouts"),
-    partialsDir: path.join(__dirname, "../../client/views/partials")
 });
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "../../client/views"));
 app.use(express.static(path.join(__dirname, "../../client/public")))
+
+// Aplicando rotas:
+app.use(router);
 
 // Middleware de tratamento de erro:
 app.use((error: Error, req: Request,  res: Response, next: NextFunction):void => {
